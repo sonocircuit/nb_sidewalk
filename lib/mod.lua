@@ -172,11 +172,11 @@ local function add_nb_sidewalk_params()
 
   params:add_separator("nb_sidewalk_patches", "presets")
 
-  params:add_trigger("nb_sidewalk_load_patch", ">> load")
-  params:set_action("nb_sidewalk_load_patch", function() fs.enter(preset_path, load_synth_patch) end)
+  params:add_trigger("nb_sidewalk_load", ">> load")
+  params:set_action("nb_sidewalk_load", function() fs.enter(preset_path, load_synth_patch) end)
   
-  params:add_trigger("nb_sidewalk_save_patch", "<< save")
-  params:set_action("nb_sidewalk_save_patch", function() tx.enter(save_synth_patch, current_patch) end)
+  params:add_trigger("nb_sidewalk_save", "<< save")
+  params:set_action("nb_sidewalk_save", function() tx.enter(save_synth_patch, current_patch) end)
 
   params:add_separator("nb_sidewalk_levels", "levels")
   params:add_control("nb_sidewalk_amp", "amp", controlspec.new(0, 1, "lin", 0, 0.8), function(param) return round_form(param:get() * 100, 1, "%") end)
