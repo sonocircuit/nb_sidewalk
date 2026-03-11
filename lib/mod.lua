@@ -431,10 +431,10 @@ local function pre_init()
   add_nb_sidewalk_player()
 end
 
-local function cleanup_sidewalk()
+local function post_cleanup()
   free_moddef()
 end
 
-md.hook.register("system_post_startup", "nb_sidewalk post startup", post_system)
-md.hook.register("script_pre_init", "nb_sidewalk pre init", pre_init)
-md.hook.register("script_post_cleanup", "nb_smpkit cleanup", cleanup_sidewalk)
+md.hook.register("system_post_startup", "nb sidewalk post startup", post_system)
+md.hook.register("script_pre_init", "nb sidewalk pre init", pre_init)
+md.hook.register("script_post_cleanup", "nb sidewalk cleanup", post_cleanup)
