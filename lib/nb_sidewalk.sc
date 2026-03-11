@@ -177,7 +177,7 @@ NB_sidewalk {
 						modBus = Bus.control(s, numModDest);
 						synthMod = nil;
 
-						"nb sidewalk added".postln;
+						"nb sidewalk initialized".postln;
 
 					}).play;
 
@@ -187,7 +187,7 @@ NB_sidewalk {
 			OSCFunc.new({ |msg|
 				if (synthMod.isNil) {
 					synthMod = Synth(\sidewalkMod, [\outBus, modBus], s);
-					"nb sidewalk mod init".postln
+					"nb sidewalk init modulation".postln
 				};
 			}, "/nb_sidewalk/init_mod");
 
@@ -195,7 +195,7 @@ NB_sidewalk {
 				if (synthMod.notNil) {
 					synthMod.free;
 					synthMod = nil;
-					"nb sidewalk mod freed".postln
+					"nb sidewalk free modulation".postln
 				};
 			}, "/nb_sidewalk/free_mod");
 
